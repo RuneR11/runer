@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RuneR | Official WebSite</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="top_secret" content="don't look back">
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/donate.css">
+    <script src="https://download.playfab.com/PlayFabClientApi.js"></script>
+    <link rel="stylesheet" href="css/nav.css">
+    <meta name="google-signin-client_id" content="17A0B">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link rel="shortcut icon" type="image/png" href="source/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body background="source\bg-image.jpg">
+    <script>
+		var ServTitleID = '17A0B';
+		
+        function Login() {
+            PlayFab.settings.titleId = ServTitleID;
+
+            if (idText.value != null && idText.value != "") {
+                PlayFabClientSDK.LoginWithEmailAddress({
+                    TitleId: ServTitleID,
+                    Email: "admin@runer.cf",
+                    Password: "099450306s",
+                    RequireBothUsernameAndEmail: false,
+                }, onPlayFabResponse);
+            }
+            else {
+                logLineErr("Error: The ID Field is Null or Empty");
+            }
+        }
+        
+        function onPlayFabResponse(response, error) {
+            var PlayerId = idText.value;
+            if (response) {
+                if (JSON.parse(JSON.stringify(response)).code != "200") {
+                    return;
+                }
+                else
+                {
+                    PlayFabClientSDK.GetAccountInfo({
+                        TitleId: ServTitleID,
+                        PlayFabId: PlayerId
+                    }, onPlayFabResponsse);   
+                }
+            }
+            
+            if (error) {
+                var child = document.getElementById("container").lastChild;
+                if (child.id === "divId" || child.id === "cloneIdErr") {
+                    document.getElementById("container").removeChild(child);
+                }
+                logLineErr("Error: " + JSON.parse(JSON.stringify(error)).errorMessage);
+            }
+        }
+        
+        function onPlayFabResponsse(response, error) {
+            if (response)
+                var child = document.getElementById("container").lastChild;
+                if (child.id === "divId" || child.id === "cloneIdErr") {
+                    document.getElementById("container").removeChild(child);
+                }
+        
+                const obj = JSON.parse(JSON.stringify(response));
+                var ban = obj.data.AccountInfo.TitleInfo.isBanned;
+                if (!ban) {
+                    logLine(obj.data.AccountInfo.TitleInfo.DisplayName, obj.data.AccountInfo.PlayFabId);
+                }
+                else 
+                {
+                    var child = document.getElementById("container").lastChild;
+                    if (child.id === "divId" || child.id === "cloneIdErr") {
+                        document.getElementById("container").removeChild(child);
+                    }
+                    logLineErr("Error: This account is banned");
+                }
+            if (error) {
+                var child = document.getElementById("container").lastChild;
+                if (child.id === "divId" || child.id === "cloneIdErr") {
+                    document.getElementById("container").removeChild(child);
+                }
+                logLineErr("Error: " + JSON.parse(JSON.stringify(error)).errorMessage);
+            }
+        }
+        
+        function logLine(message, id) 
+        {
+            console.log("PlayFabDisplayName: " + message);
+        
+            var bro = document.createElement("div")
+            bro.id = "divId";
+            document.getElementById("container").appendChild(bro);
+        
+            var br = document.createElement("h1")
+            br.id = "cloneId";
+            br.name = "child";
+            br.textContent = "ID " + id + "\n";
+            document.getElementById("divId").appendChild(br);
+        
+            var buro = document.createElement("h3")
+            buro.id = "textAlis";
+            buro.textContent = message;
+            document.getElementById("cloneId").appendChild(buro);
+            
+        
+            var but = document.createElement("button")
+            but.id = "goButton";
+            document.getElementById("cloneId").appendChild(but);
+        
+            var butPlus = document.createElement("h3")
+            butPlus.id = "ididiid";
+            butPlus.textContent = ">";
+            document.getElementById("goButton").appendChild(butPlus);
+        }
+        
+        function logLineErr(message) {
+            var oldBr = document.getElementById('container').lastChild;
+            document.getElementById("container").removeChild(oldBr);
+
+            var br = document.createElement("h1")
+            br.id = "cloneIdErr";
+            br.textContent = message;
+            document.getElementById("container").appendChild(br);
+        }
+    </script>
+
+    <header>
+        <ul class="header-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="download.html">Download</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="donate.html">Account</a></li>
+        </ul>
+    </header>
+    <div class="HeadDiv">
+        <img class="HeadPutton" src="source/gme.png" alt="GME">
+        <h3 id="H3Text">GME Official WebSite</h3>
+    </div>
+    <div class="container-second">
+        <center>
+            <div id="container">
+                <h1 id="textH2">FIND ACCOUNT</h1>
+                <input id="idText" type="text" placeholder='Player ID' name="idInput" value=""/>
+                <center>
+                    <button class="buttonFade" type="subimt" name="sum" onclick="Login()">FIND</button>
+                </center>
+            </div>
+        </center>
+    </div>
+</body>
+</html>

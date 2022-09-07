@@ -1,0 +1,274 @@
+/*body {
+    background-image: url("https://store.standoff2.com/static/img/bg_desctop.jpg");
+    
+}*/
+
+@font-face {
+    font-family: "Eure";
+    src: url("fonts\EurostileBold.ttf") format("ttf");
+}
+
+#container {
+  max-width: 340px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+  width: 80%;
+  height: 50%;
+  border-radius: 5px;
+}
+
+.container-second {
+  background-color: rgba(0, 0, 0, 0.13);
+  position: fixed;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+  width: 100%;
+  height: 50%;
+}
+
+#ididiid {
+  color: gray;
+  align-self: center;
+  left: 50%;
+  top: 50%;
+  position: fixed;
+  transform: translate(-5px, -10px);
+}
+
+#goButton {
+  color: gray;
+    font-style: oblique;
+    background-color: rgba(0, 0, 0, 0.103);
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    left: 100%;
+    right: auto;
+    transform: translate(-230%, -100%);
+    cursor: pointer;
+    position: fixed;
+}
+
+#idText {
+    color: #f1f1f1;
+    width: 60%;
+}
+
+#textH2 {
+  color: #f1f1f1;
+  text-align: center;
+}
+
+#textAlis {
+  color: #f1f1f1;
+  transform: translate(0%, 10%);
+}
+
+#classPorgramm {
+  text-align: right;
+  background-color: aqua;
+}
+
+#cloneId {
+    color: #f1f1f1;
+    background-color: rgba(66, 66, 66, 0.384);
+    align-self: center;
+    word-wrap: normal;
+    border: 0px;
+    cursor: default;
+    width: 75%;
+    height: 55px;
+    font-size: large;
+    text-align: left;
+    align-self: center;
+    margin-left: 10%;
+}
+
+#cloneIdErr {
+    color: #f1f1f1;
+}
+
+#mail {
+    color: #f1f1f1;
+    width: 60%;
+}
+
+#pass {
+    color: #f1f1f1;
+    width: 60%;
+}
+
+#textH1 {
+    color: #f1f1f1;
+    font-family: 'Eure';
+}
+
+form {
+    border: 3px solid #f1f1f1;
+}
+  
+input {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid rgb(182, 182, 182);
+    box-sizing: border-box;
+    font-family: "Eure";
+    background-color: rgba(36, 33, 66, 0.87);
+    font-size: large;
+}
+
+input:active {
+    border: 1px solid rgb(241, 241, 241);
+}
+  
+  /* Set a style for all buttons */
+button {
+    background-color: rgb(131, 154, 202);
+    color: white;
+    margin: 0px 0px;
+    align-self: center;
+    border: 0px;
+    cursor: pointer;
+    width: 50%;
+    font-size: large;
+    text-align: center;
+ }
+
+ #buttonSub {
+  padding: 14px 20px;
+ }
+  
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  button:active {
+    color: grey;
+  }
+
+  button:disabled {
+    background-color: rgba(32, 31, 43, 0.212);
+    color:rgba(255, 255, 255, 0.151);
+  }
+  /* Center the avatar image inside this container */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+  }
+  
+  /* Avatar image */
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+  /* Add padding to containers */
+  /*.container {
+    padding: 16px;
+  }*/
+  
+  /* The "Forgot password" text */
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+    .cancelbtn {
+      width: 100%;
+    }
+  }
+
+.HeadPutton {
+  max-width: 125px;
+  max-height: 125px;
+}
+
+#H3Text {
+  margin-top: -20px;
+}
+
+.HeadDiv {
+  display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.das {
+  position: relative;
+  right: -10px;
+}
+
+#loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.buttonFade {
+	width: 200px;
+	height: 50px;
+	background-color: white;
+  color: #000;
+	border: none;
+	display: flex;
+	font-size: 18px;
+	font-weight: 800;
+	cursor: pointer;
+	justify-content: center;
+	align-items: center;
+	transform: skew(-21deg);
+	position: relative;
+	transition: .5s;
+}
+
+.buttonFade:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 100%;
+	background-color: #000;
+	z-index: -1;
+	opacity: 0;
+	transition: .5s;
+}
+
+.buttonFade:hover:before {
+	width: 100%;
+	opacity: 1;
+}
+
+.buttonFade:hover {
+	text-shadow: 2px 2px 5px white;
+	color: white;
+}

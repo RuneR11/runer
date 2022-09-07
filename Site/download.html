@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+   <head lang="en">
+   <meta charset="UTF-8">
+    <title>RuneR | Official WebSite</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="top_secret" content="don't look back">
+  <link rel="javascript" href="js\script.js">
+	<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/nav.css">
+	<link rel="shortcut icon" type="image/png" href="source/logo.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+   </head>
+   <body background="source/bg-image.jpg">
+    <script type="text/javascript">
+      function Download(fileName, fileURL, countURL) {
+        var link = document.createElement("a");
+
+        link.setAttribute("download", fileName+".apk");
+        link.href = fileURL;
+        document.body.appendChild(link);
+
+        link.click();
+        link.remove();
+
+        var thank = document.createElement("h1");
+        thank.className = "TextDownload";
+        thank.textContent = "Thank you for downloading";
+        document.getElementById("Thank1Text").appendChild(thank);
+      }
+    </script>
+		<header>
+      <ul class="header-nav">
+        <li><a href="index.html">Home </a></li>
+        <li><a href="download.html">Download </a></li>
+        <li><a href="contact.html">Contact </a></li>
+        <li><a href="donate.html">Account</a></li>
+    </ul>
+  </header>
+		 <p>
+        <center>
+          <div class="Gme">
+            <center>
+              <div class="TextDownload"><h1>GME
+                Free FPS Game</h1></div>
+              <img class="panel" src="source\gme.png" alt="GME_Logo">
+              <a class="imgButton" id="gmeDownload">
+                <button class="buttonFade" onclick="Download('GME', 'source/GME.apk', 'source/count.txt')">DOWNLOAD | 388 MB</button>
+              </a>
+              <div id="Thank1Text"></div>
+            </center>
+          </div>
+        </center>
+      </p>
+   </body>
+</html>
